@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+git checkout ${3:-master}
+git pull
+git checkout -b $1
+git commit --allow-empty -m "$1 - $2" -m "https://jira.powerfulsecurity.com/browse/$1"
+git push --set-upstream origin $1

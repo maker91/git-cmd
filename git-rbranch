@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+BRANCH=$(git branch --show-current)
+
+git checkout release/v$1
+git pull
+git checkout $BRANCH
+git checkout -b ${BRANCH}_$1
+git rebase --onto release/v$1 HEAD~${2-1}
